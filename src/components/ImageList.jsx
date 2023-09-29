@@ -13,12 +13,13 @@ export default function ImageList({data}) {
                 datum => ({ ...datum, key: uuid() })
             );
             setDataWithKeys(dataWithUUID);
-            console.log("From ImageList at the end of useEffect here are data and reactKeys: ", data, dataWithKeys);
         },
-        []
+        [data]
     );
+        
+    console.log("From ImageList at the end of useEffect here are data and dataWithKeys: ", data, dataWithKeys);
 
-    return reactKeys.map(
+    return dataWithKeys.map(
         image => (
             <ImageShow key={image.key} {...image} />
         )

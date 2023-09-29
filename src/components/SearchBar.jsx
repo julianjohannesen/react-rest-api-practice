@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function SearchBar() {
 	return (
         // Todo: Add code for normal, hover, and focus states
