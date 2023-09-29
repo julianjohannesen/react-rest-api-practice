@@ -1,6 +1,6 @@
 import './App.css'
 import SearchBar from './components/SearchBar'
-import ImageShow from './components/ImageShow'
+import ImageList from './components/ImageList'
 import data from "../data.js";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <SearchBar />
-      <ImageShow data={data} />
+      <ImageList data={data} />
     </>
   )
 }
