@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export default function fetchIt(query){
+export default async function getPhotos(query){
 
     const url = 'https://api.unsplash.com/search/photos';
     const headers = {
-        //"Authorization": "Client-ID H2aZwtv7GsW9lKSxwXV7uau761kcL1E4Q61WwzsEeLI",
+        // "Authorization": "Client-ID H2aZwtv7GsW9lKSxwXV7uau761kcL1E4Q61WwzsEeLI",
         "Accept-Version": "v1",
     }
     const params = {
@@ -16,14 +16,15 @@ export default function fetchIt(query){
         "orientation": "landscape", // landscape or portrait or squarish
         "content_filter": "high", // high or low meaning high safety or low safety
         "color": "black", // black or white or ...
-        
     }
-    axios.get(url, {headers: headers, params: params})
-    .then(response => {
-        console.log(response.data.results)
-    })
-    .catch(error => {
+
+    try {
+        const response = await axios.get(url, {headers: headers, params: params});
+        return response.data.results;
+    }
+    catch(error) {
         console.error(error);
-    })
+        throw error;
+    }
     
 }

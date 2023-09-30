@@ -2,18 +2,18 @@ import './App.css'
 import SearchBar from './components/SearchBar'
 import ImageList from './components/ImageList'
 import { useState, useEffect } from 'react';
-import fetchIt from './unsplash-request.js';
+import getPhotos from './unsplash-request.js';
 
 function App() {
 
   const [query, setQuery] = useState("cats");
-  const [photos, setPhotos] = useState([{}]);
+  const [photos, setPhotos] = useState(undefined);
 
   useEffect(() => {
-    setPhotos(fetchIt("cats"))  ; //!change this to query
+    setPhotos(getPhotos("cats"))  ; //!change this to query
   }, [query]);
 
-  console.log("From App at the end of useEffect here are the photos: ", photos);
+  // console.log("From App at the end of useEffect here are the photos: ", photos);
 
   return (
     <>
