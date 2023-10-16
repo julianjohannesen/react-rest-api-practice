@@ -30,8 +30,8 @@ function App() {
   return (
     <>
       <SearchBar queryHandler={queryHandler} />
-      <section className='tile is-ancestor' style={{width:"50%"}}>
-        <div className='tile is-parent'>
+      <section className=''>
+        <div className='gallery'>
           <ImageList photos={photos} />
         </div>
       </section>

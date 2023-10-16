@@ -1,6 +1,6 @@
 export default function ImageShow({height, width, color, likes, description, urls}) {
     return (
-        <figure className="tile is-child" style={{width:"200px"}}> {/* figure must have width for img aspect ratio to work */}
+        <figure className="" style={{width:"200px"}}> {/* figure must have width for img aspect ratio to work */}
             <img 
                 alt={description}
                 className="image is-3by2" /* 3by2 is the thumbnail aspect ratio */ 
