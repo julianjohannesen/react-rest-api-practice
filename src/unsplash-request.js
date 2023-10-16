@@ -4,7 +4,7 @@ export default async function getPhotos(query){
 
     const url = 'https://api.unsplash.com/search/photos';
     const headers = {
-        // "Authorization": "Client-ID H2aZwtv7GsW9lKSxwXV7uau761kcL1E4Q61WwzsEeLI",
+        "Authorization": "Client-ID H2aZwtv7GsW9lKSxwXV7uau761kcL1E4Q61WwzsEeLI",
         "Accept-Version": "v1",
     }
     const params = {

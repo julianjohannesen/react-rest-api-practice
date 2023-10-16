@@ -4,3 +4,5 @@ I was passing an object inside of props to a child component but then trying to 
 
 I just spent an hour trying to figure out why Unsplash API request wasn't working, when I'd somehow copied the access key incorrectly.
 
+It took me forever to figure out how to conditionally call <ImageShow> in the ImageList component. I needed to do photos.length > 0 ? <ImageShow ...> : []. I was trying for a long time to leave out the length property and rely on the truthy-ness of photos, totally forgetting that an empty array is truthy.
+

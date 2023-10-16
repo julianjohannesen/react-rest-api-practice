@@ -1,24 +1,41 @@
 import './App.css'
 import SearchBar from './components/SearchBar'
 import ImageList from './components/ImageList'
+import Tile from './components/Tile'
 import { useState, useEffect } from 'react';
 import getPhotos from './unsplash-request.js';
 
 function App() {
 
-  const [query, setQuery] = useState("cats");
-  const [photos, setPhotos] = useState(undefined);
+  const [query, setQuery] = useState("");
+  const [photos, setPhotos] = useState([]);
+
+  const queryHandler = (event, term) => {
+    setQuery(term);
+    console.log("From App inside the queryHandler, here's the search term: ", term);
+  }
 
   useEffect(() => {
-    setPhotos(getPhotos("cats"))  ; //!change this to query
+    // Each time the query term updates, call the API and store the results in 'photos'.
+    async function apiCall(){
+      // getPhotos uses Axios to make the API call
+      const thePhotos = await getPhotos(query);
+      setPhotos(thePhotos);
+    }
+    apiCall()
   }, [query]);
 
-  // console.log("From App at the end of useEffect here are the photos: ", photos);
+  console.log("From App, here's the search query after it's been set: ", query);
 
   return (
     <>
-      <SearchBar query={query} setQuery={setQuery} />
-      <ImageList photos={photos} />
+      <SearchBar queryHandler={queryHandler} />
+      <section className='tile is-ancestor' style={{width:"50%"}}>
+        <div className='tile is-parent'>
+          <ImageList photos={photos} />
+        </div>
+      </section>
+      <Tile />
     </>
   )
 }
