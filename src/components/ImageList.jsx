@@ -17,8 +17,6 @@ export default function ImageList({photos}) {
         },
         [photos]
     );
-        
-    console.log("From ImageList, after useEffect here are data and dataWithKeys: ", photos, dataWithKeys);
 
     return dataWithKeys 
         ? 

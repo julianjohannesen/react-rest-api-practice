@@ -25,18 +25,15 @@ function App() {
     apiCall()
   }, [query]);
 
-  console.log("From App, here's the search query after it's been set: ", query);
-
   return (
-    <>
+    <div className="app">
       <SearchBar queryHandler={queryHandler} />
       <section className=''>
         <div className='gallery'>
           <ImageList photos={photos} />
         </div>
       </section>
-      <Tile />
-    </>
+    </div>
   )
 }
 

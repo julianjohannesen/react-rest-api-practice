@@ -19,7 +19,7 @@ export default function SearchBar({queryHandler}) {
         // Todo: Add code for normal, hover, and focus states
         // Todo: Add code for loading state
 		// Todo: Figure out if Axios handles debounce automatically
-		<form onSubmit={handleSubmit}>
+		<form className="search-form" onSubmit={handleSubmit}>
 			<div className="field has-addons">
 				<div className="control">
 					<label
